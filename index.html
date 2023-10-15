@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Steganography Converter | 7A</title>
+    <link rel="icon" href="icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="js/steganography.min.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Steganography Converter</h1>
+    </header>
+    <div class="tabs">
+      <div class="tab-header">
+        <div class="active">
+          <i class="fa fa-lock"></i>
+          Encode
+        </div>
+        <div>
+          <a href="decode.html"> <i class="fa fa-unlock"></i> Decode </a>
+        </div>
+      </div>
+      <div class="tab-indicator"></div>
+      <div class="tab-body">
+        <div class="active">
+          <div class="content">
+            <h2>Encode Message</h2>
+            <p class="information">
+
+              Upload an image and enter the message you want to hide. Afterward, click the <strong> 'Encode' </strong> button to conceal your message within the image. Save the resulting image, and it will preserve your hidden message when you extract it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="upload">
+      <h3>Upload your file</h3>
+      <div class="drag-area">
+        <div class="icon">
+          <i class="fas fa-images"></i>
+        </div>
+        <span class="header"> Drag & Drop</span>
+        <span class="header">
+          or
+          <span
+            class="button"
+            onclick="document.getElementById('fileInput').click()"
+            >Browse</span
+          ></span
+        >
+        <input type="file" id="fileInput" name="pic" onchange="readURL(this)" hidden required />
+        <span class="support"> Supports: JPEG, JPG, PNG</span>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="textarea-wrapper">
+        <textarea
+          name="form-control message"
+          id="text"
+          cols="30"
+          rows="10"
+          placeholder="Type something here..."
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <button class="encode btn btn-default" onclick="hideText()">
+          Encode
+        </button>
+      </div>
+    </form>
+    <div class="clearfix"></div>
+    </div>
+    
+    <div class="result">
+      <div class="img-cont">
+        <div class="img1">
+          <h5 hidden>Source Image</h5>
+          <img id="image1" src="" alt="" hidden/>
+        </div>
+
+      <div>
+        <div class="encode_result">
+          <h5 hidden>Message Encoded Image</h5>
+          <img id="image2" src="" alt="" class="encoded_img"/>
+        </div>
+        <div class="yeah">
+          <button type="button" class="download" data-download="image2">
+            <i class="fa fa-download"></i> Download
+          </button>
+        </div>
+      </div>
+      </div>
+    </div>
+
+<div class="footer">&copy; 2023 - IT Security - Group 3</div>
+
+    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="js/fileSaver.js"></script>
+
+    <script>
+      const textarea = document.querySelector("textarea");
+      textarea.addEventListener("keyup", (e) => {
+        textarea.style.height = "60";
+        let scHeight = e.target.scrollHeight;
+        textarea.style.height = `${scHeight}px`;
+      });
+    </script>
+
+<script>
+var image2 = document.getElementById("image2");
+var downloadButton = document.querySelector('.download[data-download="image2"]');
+
+// Cek apakah gambar dimuat dengan benar
+image2.onload = function () {
+    // Jika gambar dimuat dengan benar, tampilkan tombol
+    downloadButton.style.display = 'inline';
+};
+</script>
+
+<script>
+let downloadButtons = document.querySelectorAll("[data-download]");
+
+downloadButtons.forEach(btnDownload => {
+  btnDownload.addEventListener("click", () => {
+    let img = document.querySelector("#image2"); // Menggunakan ID "image2"
+    let imgPath = img.getAttribute("src");
+    let fileName = "steganography.png";
+    
+    // Panggil saveAs dengan nama file yang sesuai
+    saveAs(imgPath, fileName);
+  });
+});
+
+function getFileName(str) {
+  return str.substring(str.lastIndexOf("/") + 1);
+}
+</script>
+
+  </body>
+</html>

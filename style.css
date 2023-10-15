@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10%;
+  overflow: hidden;
+  justify-content: center;
+  background-color: #f3f5f7;
+  color: rgb(2, 3, 78);
+  margin-bottom: 10px;
+}
+
+.tabs {
+  position: relative;
+  border: 1 solid #838bf5;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.tabs .tab-header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.tabs .tab-header > div {
+  width: 100px;
+  text-align: center;
+  color: #888;
+  font-weight: 300;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.tabs .tab-header > div > i {
+  margin-bottom: 5px;
+}
+
+.tabs .tab-header > div.active {
+  color: #00acee;
+}
+
+.tabs .tab-indicator {
+  position: relative;
+  width: 100px;
+  height: 5px;
+  background: #00acee;
+  left: 0;
+  border-radius: 5px;
+}
+
+.tabs .tab-body {
+  position: relative;
+  height: 100%;
+}
+
+.tabs .tab-body > div {
+  position: relative;
+  top: -200%;
+  opacity: 1;
+  margin-top: 10px;
+  transform: scale(1);
+  transition: opacity 500ms ease-in-out 0ms, transform 500ms ease-in-out 0ms;
+}
+
+.tabs .tab-body > div.active {
+  top: 0px;
+  opacity: 1;
+  margin-top: 10px;
+  transform: scale(1);
+}
+.container {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #333;
+  padding: 10px;
+}
+
+.upload {
+  max-width: 650px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: rgba(210, 211, 212, 0.2) 0px 8px 24px;
+}
+
+.drag-area {
+  height: 350px;
+  border: 3px dashed #e0eafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+h3 {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.drag-area .icon {
+  font-size: 50px;
+  color: #1683ff;
+}
+
+.drag-area .header {
+  font-size: 20px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+.drag-area .support {
+  font-size: 12px;
+  margin: 10px 0 15px 0;
+  color: gray;
+}
+
+.drag-area .button {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1683ff;
+  cursor: pointer;
+}
+
+.drag-area .active {
+  border: 2px solid #1683ff;
+}
+
+.drag-area img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+#fileInput {
+  display: none;
+}
+
+.wrapper {
+  width: 680px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: rgba(185, 185, 185, 0.2) 0px 8px 24px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.textarea-wrapper {
+  flex: 1; /* Mengisi sebanyak mungkin ruang yang tersedia */
+  margin-right: 10px; /* Jarak antara textarea dan tombol */
+}
+
+.wrapper textarea {
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #9294fd; /* Memperbaiki properti border */
+}
+
+textarea:is(:focus, :vald) {
+  border-color: #4671ea;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Style untuk tombol */
+button {
+  padding: 15px 30px;
+  background-color: #358fee;
+  color: #fff;
+  border: 1px solid #ccc; /* Garis batas elemen */
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Style untuk header 2 (Subjudul) */
+
+h2 {
+  text-align: justify;
+}
+
+p.information {
+  text-align: justify; /* Rata kanan kiri untuk teks dalam elemen p */
+  color: #4242aa; /* Warna font biru tua */
+  border: 1px solid #ccc; /* Garis batas elemen */
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #e2f1fc;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10%;
+  overflow: hidden;
+  justify-content: center;
+  background-color: #f3f5f7;
+  color: rgb(2, 3, 78);
+}
+
+.encode_result {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Pusatkan elemen secara horizontal */
+  text-align: center; /* Pusatkan teks secara horizontal */
+  margin: 10px;
+}
+
+.img-cont {
+  align-items: center;
+}
+
+.encoded_img {
+  width: 50%; /* Maksimum lebar gambar */
+  height: 25%; /* Gambar akan menyesuaikan tinggi dengan lebar yang diatur */
+  display: block;
+  align-items: center;
+}
+
+.download {
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

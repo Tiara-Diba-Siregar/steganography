@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Steganography Converter | 7A</title>
+    <link rel="icon" href="icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="js/steganography.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Steganography Converter</h1>
+    </header>
+    <div class="tabs">
+      <div class="tab-header">
+        <div>
+          <div>
+            <a href="index.html"> <i class="fa fa-lock"></i> Encode </a>
+          </div>
+        </div>
+        <div class="active"><i class="fa fa-unlock"></i> Decode</div>
+      </div>
+      <div class="tab-indicator"></div>
+      <div class="tab-body">
+        <div class="active"></div>
+        <div class="content">
+          <h2>Decode Image</h2>
+          <p class="information">
+            Select an image, then unveil a concealed message by clicking the
+            <strong>'Decode'</strong> button.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="upload">
+      <h3>Upload your file</h3>
+      <div class="drag-area">
+        <div class="icon">
+          <i class="fas fa-images"></i>
+        </div>
+        <span class="header"> Drag & Drop</span>
+        <span class="header">
+          or
+          <span
+            class="button"
+            onclick="document.getElementById('fileInput').click()"
+            src="data:image/gif;base64,R01GOD1hAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            id="input"
+            >Browse</span
+          ></span
+        >
+        <input type="file" id="fileInput" hidden />
+        <span class="support"> Supports: JPEG, JPG, PNG</span>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="textarea-wrapper">
+        <textarea
+          id="decoded"
+          cols="30"
+          rows="10"
+          placeholder="Decoded message will appear here"
+          disabled
+        ></textarea>
+      </div>
+      <div class="submit">
+        <button class="decode btn btn-default" onclick="decode(input)">
+          Decode
+        </button>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+    <script>
+      const textarea = document.querySelector("textarea");
+      textarea.addEventListener("keyup", (e) => {
+        textarea.style.height = "60";
+        let scHeight = e.target.scrollHeight;
+        textarea.style.height = `${scHeight}px`;
+      });
+    </script>
+    <script>
+      // Mendapatkan elemen-elemen yang diperlukan
+      const tabs = document.querySelector(".tabs");
+      const tabIndicator = tabs.querySelector(".tab-indicator");
+      const tabHeaders = tabs.querySelectorAll(".tab-header div");
+
+      // Memperoleh indeks tab yang aktif
+      const activeTabIndex = Array.from(tabHeaders).findIndex((tab) =>
+        tab.classList.contains("active")
+      );
+
+      // Mengatur posisi indikator tab
+      tabIndicator.style.left = `calc(15.5%/ ${tabHeaders.length} * ${activeTabIndex})`;
+    </script>
+  </body>
+</html>
