@@ -171,18 +171,19 @@ h3 {
 }
 
 .textarea-wrapper {
-  flex: 1; /* Mengisi sebanyak mungkin ruang yang tersedia */
-  margin-right: 10px; /* Jarak antara textarea dan tombol */
+  flex: 1;
+  margin-right: 10px;
 }
 
 .wrapper textarea {
+  display: grid;
   width: 100%;
-  height: 60px;
+  height: 57px;
   padding: 15px;
   outline: none;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #9294fd; /* Memperbaiki properti border */
+  border: 1px solid #9294fd;
 }
 
 textarea:is(:focus, :vald) {
@@ -193,12 +194,11 @@ textarea::-webkit-scrollbar {
   width: 0px;
 }
 
-/* Style untuk tombol */
 button {
   padding: 15px 30px;
   background-color: #358fee;
   color: #fff;
-  border: 1px solid #358fee; /* Garis batas elemen */
+  border: 1px solid #358fee;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -207,16 +207,14 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Style untuk header 2 (Subjudul) */
-
 h2 {
   text-align: justify;
 }
 
 p.information {
-  text-align: justify; /* Rata kanan kiri untuk teks dalam elemen p */
-  color: #4242aa; /* Warna font biru tua */
-  border: 1px solid #ccc; /* Garis batas elemen */
+  text-align: justify;
+  color: #4242aa;
+  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   background-color: #e2f1fc;
@@ -242,8 +240,8 @@ a {
 .encode_result {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Pusatkan elemen secara horizontal */
-  text-align: center; /* Pusatkan teks secara horizontal */
+  align-items: center;
+  text-align: center;
   margin: 10px;
 }
 
@@ -252,8 +250,8 @@ a {
 }
 
 .encoded_img {
-  width: 50%; /* Maksimum lebar gambar */
-  height: 25%; /* Gambar akan menyesuaikan tinggi dengan lebar yang diatur */
+  width: 50%;
+  height: 25%;
   display: block;
   align-items: center;
   margin-bottom: -20px;
@@ -266,7 +264,7 @@ a {
   padding: 15px 30px;
   background-color: #358fee;
   color: #fff;
-  border: 1px solid #358fee; /* Garis batas elemen */
+  border: 1px solid #358fee;
   border-radius: 5px;
   font-size: 16px;
   align-items: center;

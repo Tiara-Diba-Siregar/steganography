@@ -15,7 +15,6 @@
       referrerpolicy="no-referrer"
     />
     <script src="js/steganography.min.js"></script>
-
   </head>
   <body>
     <header>
@@ -37,8 +36,10 @@
           <div class="content">
             <h2>Encode Message</h2>
             <p class="information">
-
-              Upload an image and enter the message you want to hide. Afterward, click the <strong> 'Encode' </strong> button to conceal your message within the image. Save the resulting image, and it will preserve your hidden message when you extract it.
+              Upload an image and enter the message you want to hide. Afterward,
+              click the <strong> 'Encode' </strong> button to conceal your
+              message within the image. Save the resulting image, and it will
+              preserve your hidden message when you extract it.
             </p>
           </div>
         </div>
@@ -60,7 +61,14 @@
             >Browse</span
           ></span
         >
-        <input type="file" id="fileInput" name="pic" onchange="readURL(this)" hidden required />
+        <input
+          type="file"
+          id="fileInput"
+          name="pic"
+          onchange="readURL(this)"
+          hidden
+          required
+        />
         <span class="support"> Supports: JPEG, JPG, PNG</span>
       </div>
     </div>
@@ -82,23 +90,21 @@
           Encode
         </button>
       </div>
-    </form>
-    <div class="clearfix"></div>
     </div>
-    
+
     <div class="result">
       <div class="img-cont">
         <div class="img1">
           <h5 hidden>Source Image</h5>
-          <img id="image1" src="" alt="" hidden/>
+          <img id="image1" src="" alt="" hidden />
         </div>
 
-      <div>
-        <div class="encode_result">
-          <h5 hidden>Message Encoded Image</h5>
-          <img id="image2" src="" alt="" class="encoded_img"/>
+        <div>
+          <div class="encode_result">
+            <h5 hidden>Message Encoded Image</h5>
+            <img id="image2" src="" alt="" class="encoded_img" />
+          </div>
         </div>
-      </div>
       </div>
     </div>
 
@@ -108,12 +114,12 @@
       </a>
     </div>
 
-<div class="footer">&copy; 2023 - IT Security - Group 3</div>
+    <div class="footer">&copy; 2023 - IT Security - Group 3</div>
 
     <script src="js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="js/fileSaver.js"></script>
+    <script src="js/fileSaver.js"></script>
 
     <script>
       const textarea = document.querySelector("textarea");
@@ -124,35 +130,32 @@
       });
     </script>
 
-<script>
-var image2 = document.getElementById("image2");
-var downloadButton = document.querySelector('.download[data-download="image2"]');
+    <script>
+      var image2 = document.getElementById("image2");
+      var downloadButton = document.querySelector(
+        '.download[data-download="image2"]'
+      );
+      image2.onload = function () {
+        downloadButton.style.display = "inline";
+      };
+    </script>
 
-// Cek apakah gambar dimuat dengan benar
-image2.onload = function () {
-    // Jika gambar dimuat dengan benar, tampilkan tombol
-    downloadButton.style.display = 'inline';
-};
-</script>
+    <script>
+      let downloadButtons = document.querySelectorAll("[data-download]");
 
-<script>
-let downloadButtons = document.querySelectorAll("[data-download]");
+      downloadButtons.forEach((btnDownload) => {
+        btnDownload.addEventListener("click", () => {
+          let img = document.querySelector("#image2");
+          let imgPath = img.getAttribute("src");
+          let fileName = "steganography.png";
 
-downloadButtons.forEach(btnDownload => {
-  btnDownload.addEventListener("click", () => {
-    let img = document.querySelector("#image2"); // Menggunakan ID "image2"
-    let imgPath = img.getAttribute("src");
-    let fileName = "steganography.png";
-    
-    // Panggil saveAs dengan nama file yang sesuai
-    saveAs(imgPath, fileName);
-  });
-});
+          saveAs(imgPath, fileName);
+        });
+      });
 
-function getFileName(str) {
-  return str.substring(str.lastIndexOf("/") + 1);
-}
-</script>
-
+      function getFileName(str) {
+        return str.substring(str.lastIndexOf("/") + 1);
+      }
+    </script>
   </body>
 </html>
